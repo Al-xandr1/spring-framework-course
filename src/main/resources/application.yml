@@ -1,0 +1,4 @@
+
+myapp:
+  baseTariff: 100000
+  premiumTariff: 0.5
