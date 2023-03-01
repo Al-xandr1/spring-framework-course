@@ -3,6 +3,8 @@ package com.otus.springframework;
 import com.otus.springframework.enities.Worker;
 import com.otus.springframework.repositories.WorkerRepository;
 import com.otus.springframework.services.SalaryService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +17,8 @@ import org.springframework.context.annotation.Bean;
         exclude = DataSourceAutoConfiguration.class
 )
 public class Application {
+
+    private static Logger LOG = LoggerFactory.getLogger(Application.class);
 
     @Autowired
     private WorkerRepository workerRepository;
@@ -29,7 +33,7 @@ public class Application {
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
-            System.out.println("Application has started");
+            LOG.info("Application has started");
 
             Worker worker = workerRepository.getById(1L);
 
@@ -37,9 +41,9 @@ public class Application {
             worker.setCurrentSalary(salary);
 
             double premium = salaryService.calculatePremium(worker);
-            System.out.println(String.format("Worker %s receive premium %s", worker.getId(), premium));
+            LOG.info("Worker {} receive premium {}", worker.getId(), premium);
 
-            System.out.println("Application has finished");
+            LOG.info("Application has finished");
         };
     }
 }
