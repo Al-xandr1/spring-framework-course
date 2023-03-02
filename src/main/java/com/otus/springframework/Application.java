@@ -35,7 +35,7 @@ public class Application {
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
-            LOG.info("Application has started");
+            LOG.info("### Application has started");
 
             Worker worker = workerRepository.getById(1L);
 
@@ -45,7 +45,7 @@ public class Application {
             double premium = salaryService.calculatePremium(worker);
             LOG.info("Worker {} receive premium {}", worker.getId(), premium);
 
-            LOG.info("Application has finished");
+            LOG.info("### Application has finished");
         };
     }
 }
