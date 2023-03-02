@@ -12,10 +12,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication(
         exclude = DataSourceAutoConfiguration.class
 )
+@EnableAspectJAutoProxy
 public class Application {
 
     private static Logger LOG = LoggerFactory.getLogger(Application.class);

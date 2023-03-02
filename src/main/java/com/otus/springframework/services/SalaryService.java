@@ -18,7 +18,7 @@ public class SalaryService {
     private double salaryTariff;
 
     public double calculateSalary(Worker worker) {
-        LOG.info("Method com.otus.springframework.services.SalaryService.calculateSalary was called with parameters {}", worker);
+        LOG.info("Method com.otus.springframework.services.SalaryService.calculateSalary was called with parameters {}", worker); //todo remove
         var grade = worker.getGrade();
 
         double sal;
@@ -32,15 +32,15 @@ public class SalaryService {
             sal = salaryTariff * 2;
         }
 
-        LOG.info("Method com.otus.springframework.services.SalaryService.calculateSalary has returned result {}", sal);
+        LOG.info("Method com.otus.springframework.services.SalaryService.calculateSalary has returned result {}", sal); //todo remove
         return sal;
     }
 
     public double calculatePremium(Worker worker) {
-        LOG.info("Method com.otus.springframework.services.SalaryService.calculatePremium was called with parameters {}", worker);
+        LOG.info("Method com.otus.springframework.services.SalaryService.calculatePremium was called with parameters {}", worker); //todo remove
         var salary = worker.getCurrentSalary();
         double premium = salary * premiumTariff;
-        LOG.info("Method com.otus.springframework.services.SalaryService.calculatePremium has returned result {}", premium);
+        LOG.info("Method com.otus.springframework.services.SalaryService.calculatePremium has returned result {}", premium); //todo remove
         return premium;
     }
 }
